@@ -6,6 +6,16 @@ package edu.dataStructure;
  *    1. sentinel必须永远指向一个sentinel节点;
  *    2. 如果有一个节点，那这个节点必须可以通过sentinel.next获取到;
  *    3. size变量一直随列表中节点数量变化而变化;
+ * 存在问题：
+ *    1. addLast效率差，可以新增last变量指向最后一个值，以解决这个问题;
+ *        I.使用last的情况下，get、add操作效率高，remove效率低;原因是remove每次删除最后一个，都需要遍历到倒数第二个，
+ *        将它的指向改为null，再将last的指向倒数第二个值;
+ *        II.在使用last基础上，使用一种结构：双向连接列表（doublly-linked-list），简写DLList;
+ *        与之相反的是SLList这类的单向连接列表（singly-linked-list）;
+ *        使得add、remove都消耗“恒定时间”;
+ *        III.在I、II基础上，会产生一个问题，last指向sentinel，那我们就得另外去处理这种复杂情况;
+ *            解决方法1：首尾添加sentinel，空列表就是两个sentinel，add在两个sentinel中间;
+ *            解决方法2：(闭环)使用一个sentinel，空列表时sentinel指向自己，add一个节点后，sentinel.next.next==sentinel;
  */
 
 public class SLList {
