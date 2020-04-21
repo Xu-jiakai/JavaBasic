@@ -5,13 +5,13 @@ public class DLList {
     private DIntNode sentinel;
 
     public DLList(){
-        sentinel=new DIntNode(null,63,null);
+        sentinel=new DIntNode(sentinel,63,sentinel);
         size=0;
     }
 
     public DLList(int x){
         sentinel=new DIntNode(sentinel,63,sentinel);
-        sentinel.next=new DIntNode(sentinel,x,sentinel);
+        sentinel.next=new DIntNode(sentinel,x,sentinel.next);
         size=1;
     }
 
