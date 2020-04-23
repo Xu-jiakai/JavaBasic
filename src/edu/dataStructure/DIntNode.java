@@ -5,9 +5,7 @@ public class DIntNode {
     public int item;
     public DIntNode next;
 
-    public DIntNode(DIntNode p,int i,DIntNode n){
-        prev=p;
+    public DIntNode(int i){
         item=i;
-        next=n;
     }
 }
